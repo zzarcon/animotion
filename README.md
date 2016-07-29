@@ -1,2 +1,2 @@
 # animotion
-Subscribe to element animation events in a declarative way
+> Subscribe to element animation events in a declarative way
