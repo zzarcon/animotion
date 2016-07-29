@@ -1,6 +1,6 @@
 {
   "name": "animotion",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Subscribe to element animation events in a declarative way",
   "main": "index.js",
   "scripts": {
