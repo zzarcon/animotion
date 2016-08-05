@@ -1,23 +1,58 @@
-const on = (element, animationName) => (eventName, handler) => {
-  const isValidEventName = ['start', 'iteration', 'end'].indexOf(eventName) > -1;
-  if (!isValidEventName) throw new Error(`${eventName} not supported`);
+const animotion = require('animotion');
+const $ = id => document.getElementById(id);
+const animatedElement = $('animated');
+const statsEl = $('stats');
+const statusEl = $('status');
+const timeEl = $('time');
+const iterationsEl = $('iterations');
 
-  const nativeEventName = `animation${eventName}`;
+let isRunning = true;
+let elapsedTime = 0.0;
+let iterationCount = 0;
 
-  element.addEventListener(nativeEventName, e => {
-    const matches = animationName ? e.animationName === animationName : true;
-
-    matches && handler(e);
-  });
-
-  return animotion(element, animationName);
+const start = () => {
+  console.log('start');
+  statusEl.innerText = 'Status: running';
 };
-const name = element => animationName => animotion(element, animationName);
-const animotion = (element, animationName) => {
-  return {
-    on: on(element, animationName),
-    name: name(element)
+
+const iteration = () => {
+  iterationCount++;
+
+  console.log('iteration', iterationCount);
+
+  iterationsEl.innerText = `Iterations: ${iterationCount}`;
+};
+
+const end = () => {
+  console.log('end');
+
+  statusEl.innerText = 'Status: stoped';
+};
+
+const toggle = () => {
+  isRunning = !isRunning;
+
+  // statusEl.innerText = 'Status: ' + (isRunning ? 'running' : 'stoped');
+
+  animatedElement.classList.toggle('stoped');
+};
+
+const updateTime = () => {
+  if (isRunning) {
+    elapsedTime += 0.1;
+
+    timeEl.innerText = `Slapsed time: ${elapsedTime.toFixed(1)}s`;
   }
+
+  setTimeout(updateTime, 100);
 };
 
-module.exports = element => animotion(element);
+
+$('toggle').addEventListener('click', toggle);
+
+animotion(animatedElement)
+  .on('start', start)
+  .on('iteration', iteration)
+  .on('end', end)
+
+updateTime();

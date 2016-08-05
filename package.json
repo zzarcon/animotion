@@ -1,12 +1,11 @@
 {
-  "name": "animotion",
-  "version": "0.1.1",
-  "description": "Subscribe to element animation events in a declarative way",
+  "name": "animotion-demo",
+  "version": "0.1.0",
+  "description": "Demo of Animotion",
   "main": "index.js",
   "scripts": {
-    "watch": "watchify test/index.js -o test/test_bundle.js",
-    "serve": "serve",
-    "release": "npm version patch && npm publish && git push --tags && git push"
+    "watch": "watchify index.js -o bundle.js",
+    "serve": "serve"
   },
   "repository": {
     "type": "git",
@@ -19,10 +18,10 @@
   },
   "homepage": "https://github.com/zzarcon/animotion#readme",
   "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^2.5.3",
     "serve": "^1.4.0",
-    "sinon": "^1.17.5",
     "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "animotion": "^0.1.1"
   }
 }

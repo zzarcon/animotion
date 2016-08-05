@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Animotion Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+    }
+    body{
+      background-color: #3C557D;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px;
+      font-family: Verdana;
+    }
+    #animated{
+      width: 20px;
+      height: 20px;
+      animation: foo 3s infinite;
+      background-color: #ff4949;
+      border-radius: 45%;
+    }
+    #stats{
+      background-color: #f5f5f5;
+      box-shadow: 0 0 5px 1px #292929;
+      height: 100px;
+      width: 300px;
+      margin-bottom: 10px;
+      border-radius: 2px;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+    }
+    #toggle{
+      color: #1ECD97;
+      background: transparent;
+      border: 2px solid #1ECD97;
+      padding: 5px 13px;
+      border-radius: 5px;
+      font-size: 18px;
+      margin-bottom: 5px;
+      transition: all .4s;
+      cursor: pointer;
+      outline: none;
+    }
+    #toggle:hover{
+      color: white;
+      background-color: #1ECD97;
+    }
+    .stoped{
+      animation-iteration-count: 0 !important;
+      animation: none !important;
+    }
+
+    @keyframes foo {
+      0%{
+        transform: translateX(0);
+      }
+      25%{
+        transform: translateX(100px);
+      }
+      50% {
+        transform: translateX(0); 
+      }
+      75%{
+        transform: translateX(-100px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <button id="toggle">Toggle</button>
+  <ul id="stats">
+    <li id="status">Status: running</li>
+    <li id="time">Slapsed time: 0</li>
+    <li id="iterations">Iterations: 0</li>
+  </ul>
+  <div id="animated"></div>
+  <script src="bundle.js"></script>
+</body>
+</html>
