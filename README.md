@@ -12,15 +12,18 @@ Having the following CSS
   border: 1px solid;
   width: 1px;
   height: 1px;
-  animation: foo .5s;
+  animation: foo 2s infinite;
 }
 
 @keyframes foo {
   0%{
     transform: translateX(0);
   }
-  100% {
+  50%{
     transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 ```
@@ -31,8 +34,10 @@ Having the following CSS
 const animotion = require('animotion');
 const div = document.getElementById('animated-div');
 
+let iterationCount;
+
 const start = _ => {console.log(`Element started animation at ${new Date()}`)};
-const iteration = _ => {console.log(`Element started animation at ${new Date()}`)};
+const iteration = _ => {console.log(`Element iteration: ${iterationCount++}`)};
 const end = _ => {console.log(`Element finished animation at ${new Date()}`)};
 
 animotion(div)
@@ -42,7 +47,7 @@ animotion(div)
 ```
 
 ###Filter by animation name
-This could be useful if you add/remove classes that involve animations to the same element and you want to react different to them:
+This could be useful if you add/remove classes that involve animations in the same element and you want to react different to them:
 
 ```javascript
 //The start event will not be called because the animation name is different
