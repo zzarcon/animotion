@@ -1,7 +1,8 @@
 #Animotion
-> Subscribe to element animation events in a declarative way
+> Subscribe to element animation events in a declarative way ![DEMO](https://zzarcon.github.io/animotion/)
 
 <img src="http://babysimpson.co.uk/gallery/frames/12/babf22/59.jpg" width="173">
+<img src="https://media.giphy.com/media/l0HlOdjc6zBE06Xv2/giphy.gif" width="190">
 
 ##Usage
 
