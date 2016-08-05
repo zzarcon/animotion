@@ -33,7 +33,7 @@ const end = () => {
 const toggle = () => {
   isRunning = !isRunning;
 
-  // statusEl.innerText = 'Status: ' + (isRunning ? 'running' : 'stoped');
+  statusEl.innerText = 'Status: ' + (isRunning ? 'running' : 'stoped');
 
   animatedElement.classList.toggle('stoped');
 };
