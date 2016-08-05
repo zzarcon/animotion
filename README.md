@@ -57,6 +57,18 @@ animotion(div)
   .on('end', end)
 ```
 
+###Demo
+Tracking animation status, slapsed time and iteration number with Animotion
+
+<img src="https://media.giphy.com/media/l0HlOdjc6zBE06Xv2/giphy.gif" width="545">
+
+https://zzarcon.github.io/animotion/
+
+###Installation
+
+```
+$ npm i animotion -S
+```
 ###Author
 
 [@zzarcon](https://twitter.com/zzarcon) :rocket:
